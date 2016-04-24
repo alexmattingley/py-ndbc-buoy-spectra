@@ -28,6 +28,12 @@ function flagGen(args) {
   return flags;
 }
 
+function check_script_complete(output){
+  //check if output exists
+  //wait a second
+  //check again
+}
+
 function run_script(){
   var buoyData = ''
   var execstr = 'python ' + path.join('./', 'ndbc.py') + flagGen(pyArgs);

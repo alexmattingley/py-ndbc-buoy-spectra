@@ -4,9 +4,6 @@ var path = require('path');
 var set_flags = require('./set_flags');
 
 
-
-
-
 /* GET buoy page. */
 router.get('/', function(req, res, next) {
   var buoy_id = req.query.buoy_id;
