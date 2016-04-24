@@ -38,12 +38,12 @@ function run_script(){
   var buoyData = ''
   var execstr = 'python ' + path.join('./', 'ndbc.py') + flagGen(pyArgs);
   var child = exec(execstr, function(error, stdout, stderr) {
+    console.log('working');
     if (error) {
       console.log(stderr)
     }
     else {
       buoyData= JSON.parse(stdout);
-      console.log('working');
     }
   });
   return buoyData;
