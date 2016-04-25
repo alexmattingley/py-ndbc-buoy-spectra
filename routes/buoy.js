@@ -31,33 +31,37 @@ function flagGen(args) {
 }
 
 function check_script_complete(output){
-  //check if output exists
-  //wait a second
-  //check again
-  //call function as middlewear in child variable?
 }
 
+var buoyData = ''
+
 function run_script(){
-  var buoyData = ''
   var execstr = 'python ' + path.join('./', 'ndbc.py') + flagGen(pyArgs);
-  var child = exec(execstr, function(error, stdout, stderr) {
-    console.log('working');
+  exec(execstr, function(error, stdout, stderr) {
+    console.log(typeof stdout);
     if (error) {
       console.log(stderr)
     }
     else {
-      buoyData= JSON.parse(stdout);
+      buoyData = JSON.parse(stdout);
+      //console.log(buoyData);
     }
   });
+  console.log(buoyData);
   return buoyData;
 }
 
-
+run_script();
+var buoyData = "buoydata hasnt been set";
 
 /* GET buoy page. */
 router.get('/', function(req, res, next) {
   var buoy_id = req.query.buoy_id;
-	res.send(set_flags.run_script());
+  buoyData = run_script();
+	next();
+}, function(req, res, next){
+  console.log(buoyData);
+  res.send(buoyData);
 });
 
 
