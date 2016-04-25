@@ -33,7 +33,7 @@ function flagGen(args) {
 function check_script_complete(output){
 }
 
-var buoyData = ''
+var buoyData = '';
 
 function run_script(){
   var execstr = 'python ' + path.join('./', 'ndbc.py') + flagGen(pyArgs);
@@ -52,15 +52,12 @@ function run_script(){
 }
 
 run_script();
-var buoyData = "buoydata hasnt been set";
+//var buoyData = "buoydata hasnt been set";
 
 /* GET buoy page. */
 router.get('/', function(req, res, next) {
   var buoy_id = req.query.buoy_id;
   buoyData = run_script();
-	next();
-}, function(req, res, next){
-  console.log(buoyData);
   res.send(buoyData);
 });
 
