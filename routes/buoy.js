@@ -12,7 +12,7 @@ var pyArgs = {
   "units": 'ft'
 };
 
-pyArgs.datatype = '9band';
+// pyArgs.datatype = '9band';
 
 function flagGen(args) {
   var flags = '';
@@ -30,11 +30,6 @@ function flagGen(args) {
   return flags;
 }
 
-function check_script_complete(output){
-}
-
-var buoyData = '';
-
 function run_script(){
   var execstr = 'python ' + path.join('./', 'ndbc.py') + flagGen(pyArgs);
   exec(execstr, function(error, stdout, stderr) {
@@ -47,16 +42,15 @@ function run_script(){
       //console.log(buoyData);
     }
   });
-  console.log(buoyData);
   return buoyData;
 }
 
-run_script();
-//var buoyData = "buoydata hasnt been set";
-
 /* GET buoy page. */
 router.get('/', function(req, res, next) {
-  var buoy_id = req.query.buoy_id;
+  pyArgs.buoy = req.query.buoy_id;
+  //pyArgs.datatype = req.query.datatype;
+  console.log(pyArgs);
+  var buoyData = 'hello';
   buoyData = run_script();
   res.send(buoyData);
 });
