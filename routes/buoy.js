@@ -5,10 +5,10 @@ var exec = require('child_process').exec;
 
 var pyArgs = {
   // make arguments that take no parameters (ie, --json) true or false
-  "buoy": '46232',
+  "buoy": '',
   "datasource": 'http',
   "json": true,
-  "datatype": "spectra",
+  "datatype": "",
   "units": 'ft'
 };
 
@@ -33,25 +33,25 @@ function flagGen(args) {
 function run_script(){
   var execstr = 'python ' + path.join('./', 'ndbc.py') + flagGen(pyArgs);
   exec(execstr, function(error, stdout, stderr) {
-    console.log(typeof stdout);
     if (error) {
       console.log(stderr)
     }
     else {
-      buoyData = JSON.parse(stdout);
-      //console.log(buoyData);
+      pythonData = JSON.parse(stdout);
+    
     }
   });
-  return buoyData;
+  return pythonData;
+  
 }
+
+//http://stackoverflow.com/questions/34248915/node-js-execsync-returning-undefined-but-console-log-works
 
 /* GET buoy page. */
 router.get('/', function(req, res, next) {
   pyArgs.buoy = req.query.buoy_id;
-  //pyArgs.datatype = req.query.datatype;
-  console.log(pyArgs);
-  var buoyData = 'hello';
-  buoyData = run_script();
+  pyArgs.datatype = req.query.datatype;
+  var buoyData = run_script();
   res.send(buoyData);
 });
 
