@@ -30,19 +30,18 @@ function flagGen(args) {
   return flags;
 }
 
+var pythonData = 'pythonData not set';
 
 function run_script(){
-  return new Promise(function(resolve, reject){
-    var execstr = 'python ' + path.join('./', 'ndbc.py') + flagGen(pyArgs);
-    exec(execstr, function(error, stdout, stderr) {
-      if (error) {
-        return reject(stderr);
-      }
-      else {
-        var pythonData = JSON.parse(stdout);
-        return resolve(pythonData);
-      }
-    });
+  var execstr = 'python ' + path.join('./', 'ndbc.py') + flagGen(pyArgs);
+  exec(execstr, function(error, stdout, stderr) {
+    if (error) {
+      console.log(stderr)
+    }
+    else {
+      pythonData = JSON.parse(stdout);
+    
+    }
   });
 }
 
@@ -50,8 +49,9 @@ function run_script(){
 router.get('/', function(req, res, next) {
   pyArgs.buoy = req.query.buoy_id;
   pyArgs.datatype = req.query.datatype;
-  run_script().then(function(res){
-    res.send('buoyData');
+  promise = run_script();
+  promise.then(function(result){
+    res.send(pythonData);
   });
 });
 
