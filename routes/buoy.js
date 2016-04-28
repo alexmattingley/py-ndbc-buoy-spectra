@@ -30,29 +30,29 @@ function flagGen(args) {
   return flags;
 }
 
-function run_script(){
-  var execstr = 'python ' + path.join('./', 'ndbc.py') + flagGen(pyArgs);
-  exec(execstr, function(error, stdout, stderr) {
-    if (error) {
-      console.log(stderr)
-    }
-    else {
-      pythonData = JSON.parse(stdout);
-    
-    }
-  });
-  return pythonData;
-  
-}
 
-//http://stackoverflow.com/questions/34248915/node-js-execsync-returning-undefined-but-console-log-works
+function run_script(){
+  return new Promise(function(resolve, reject){
+    var execstr = 'python ' + path.join('./', 'ndbc.py') + flagGen(pyArgs);
+    exec(execstr, function(error, stdout, stderr) {
+      if (error) {
+        return reject(stderr);
+      }
+      else {
+        var pythonData = JSON.parse(stdout);
+        return resolve(pythonData);
+      }
+    });
+  });
+}
 
 /* GET buoy page. */
 router.get('/', function(req, res, next) {
   pyArgs.buoy = req.query.buoy_id;
   pyArgs.datatype = req.query.datatype;
-  var buoyData = run_script();
-  res.send(buoyData);
+  run_script().then(function(res){
+    res.send('buoyData');
+  });
 });
 
 
