@@ -3,6 +3,7 @@ var router = express.Router();
 var path = require('path');
 var exec = require('child_process').exec;
 
+
 var pyArgs = {
   // make arguments that take no parameters (ie, --json) true or false
   "buoy": '',
@@ -33,15 +34,17 @@ function flagGen(args) {
 var pythonData = 'pythonData not set';
 
 function run_script(){
-  var execstr = 'python ' + path.join('./', 'ndbc.py') + flagGen(pyArgs);
-  exec(execstr, function(error, stdout, stderr) {
-    if (error) {
-      console.log(stderr)
-    }
-    else {
-      pythonData = JSON.parse(stdout);
-    
-    }
+  return new Promise(function(resolve, reject){
+    var execstr = 'python ' + path.join('./', 'ndbc.py') + flagGen(pyArgs);
+    exec(execstr, function(error, stdout, stderr) {
+      if (error) {
+        console.log(stderr)
+      }
+      else {
+        pythonData = JSON.parse(stdout);
+        return resolve(pythonData);
+      }
+    });
   });
 }
 
@@ -49,10 +52,9 @@ function run_script(){
 router.get('/', function(req, res, next) {
   pyArgs.buoy = req.query.buoy_id;
   pyArgs.datatype = req.query.datatype;
-  promise = run_script();
-  promise.then(function(result){
+  run_script().then(function(data){
     res.send(pythonData);
-  });
+  })
 });
 
 
