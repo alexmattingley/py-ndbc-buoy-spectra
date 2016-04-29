@@ -9,12 +9,11 @@ var pyArgs = {
   "buoy": '',
   "datasource": 'http',
   "json": true,
-  "datatype": "",
+  "datatype": "spectra",
   "units": 'ft'
 };
 
-// pyArgs.datatype = '9band';
-
+//Generate flags for the python script call
 function flagGen(args) {
   var flags = '';
   for (var a in args) {
@@ -31,7 +30,7 @@ function flagGen(args) {
   return flags;
 }
 
-var pythonData = 'pythonData not set';
+var pythonData;
 
 function run_script(){
   return new Promise(function(resolve, reject){
@@ -48,10 +47,21 @@ function run_script(){
   });
 }
 
+function check_if_query_exists(req, queryVal){
+  if(req.query[queryVal] != undefined){
+    pyArgs[queryVal] = req.query[queryVal];
+  }else{
+    //console.log('user is not using' + queryVal);
+  }
+}
+
 /* GET buoy page. */
 router.get('/', function(req, res, next) {
-  pyArgs.buoy = req.query.buoy_id;
-  pyArgs.datatype = req.query.datatype;
+  check_if_query_exists(req, 'buoy');
+  check_if_query_exists(req, 'datasource');
+  check_if_query_exists(req, 'json');
+  check_if_query_exists(req, 'datatype');
+  check_if_query_exists(req, 'units');
   run_script().then(function(data){
     res.send(pythonData);
   })
