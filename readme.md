@@ -20,6 +20,6 @@ A full list of weather stations: <http://www.ndbc.noaa.gov/to_station.shtml> (ag
 
 ...lastly google it. If you want to figure out what the buoy number of goleta point is, just google goleta point NOAA buoy number.
 
-####Example a buoy query
+####Example of a buoy query
 
 [url]/buoy?buoy=46086
