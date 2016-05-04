@@ -14,7 +14,7 @@ The goal of this api is to free that raw data for use by the masses before its e
 
 Well at this point, you either fall into one of two camps:
 
-1. You are a web developer and you want to use the API. Awesome! Just continue to the documentation below, its pretty straight forward.
+1. You are a web developer and you want to use the API. Hurray! Just continue to the documentation below, its pretty straight forward.
 
 2. You are a surfer who does not know what a a JSON object or an API is, nor do you really care, you just want to get barreled and use a more accurate tool to do so. That's cool, we understand. May we recommend some absolutely awesome data based surfing sites that are responsive and use our custom built data?
 
@@ -26,7 +26,7 @@ Swell Matrix:
 
 ##API Argument Documentation
 
-###There are several different arguments that you can pass through url in order to get a desired buoy's energy breakdowns in the format that you want.
+###There are several different arguments that you can pass through the url in order to get a desired buoy's energy breakdowns in the format that you want.
 
 - buoy
 - datasource
