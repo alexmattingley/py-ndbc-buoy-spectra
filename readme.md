@@ -1,3 +1,29 @@
+#A More accurate buoy api
+
+###Picture this:
+
+Its just before first light, and you just woke up. You pull out your phone and groggily check NOAA to see if that new swell has hit yet. Your local buoy 8ft at 20 seconds and your heart jumps into your throat. You knew it was supposed to be good today but you didn't think it would be huge. You grab your step-up and a cup of coffee and run out the door without even checking the cams, you already know it is going to be giant. You get in the car and you drive an hour up the coast to that spot you know will be big and perfect. Every minute passes slowly but you finally arrive. You pull into the parking lot expecting giant scary beasts, but you find something much different. Its dissapointly smaller than it should be and it seems sort of short period and funky despite the light offshore wind. You check your phone again, but its still 8 ft at 20 seconds. 
+
+###What happened?
+
+Despite their simplicity, two band buoy data (8ft @ 20secs) is often not what it seems. That number you see is actually determined by an equation written by the good men and women over at NOAA. Without going into too much detail, that reading is actually an aggregate of all of the energy that has occured over a certain time period in the area where the buoy is located.
+
+The goal of this api is to free that raw data for use by the masses before its ever converted by NOAA into a 2 band reading. We put in the long hours and drank excessive amounts of caffine in order that you, dear web developer, can have a more useable, more accurate buoy reading for your website or application.
+
+###Now what?
+
+Well at this point, you either fall into one of two camps:
+
+You are a web developer and you want to use the API. Awesome! Just continue to the documentation below, its pretty straight forward.
+
+You are a surfer who does not know what a a JSON object or an API is, nor do you really care, you just want to get barreled and use a more accurate tool to do so. That's cool, we understand. May we recommend some absolutely awesome data based surfing sites that are responsive and use our custom built data?
+
+Greenroomhunter:
+<http://greenroomhunter.com/>
+
+Swell Matrix:
+<http://swellmatrix.com/>
+
 ##Argument Documentation
 
 ###There are several different arguments that you can pass through url in order to get a desired buoy's energy breakdowns in the format that you want.
