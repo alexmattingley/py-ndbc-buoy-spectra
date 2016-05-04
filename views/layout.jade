@@ -1,7 +1,15 @@
 doctype html
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+	head
+		title= title
+		link(rel="stylesheet", href="/stylesheets/normalize.css")
+		link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+		link(rel='stylesheet', href='/bootstrap/css/bootstrap-responsive.min.css')
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		script(src='https://code.jquery.com/jquery-2.2.3.min.js')
+		script(src='/bootstrap/js/bootstrap.min.js')
+	body
+	header
+		div.hero-banner
+		h1= title
+	block content

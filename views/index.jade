@@ -1,10 +1,8 @@
 extends layout
 
 block content
-	div.hero-banner
-		h1= title
-	div.content-block.container
-		div.col-xs-12
+	div.content-block
+		div.col-sm-6
 			h3 Picture This
 			p Its just before first light, and you just woke up. You pull out your phone and groggily check NOAA to see if that new swell has hit yet. Your local buoy is at 8ft at 20 seconds and your heart jumps into your throat. You knew it was supposed to be good today but you didn't think it would be huge.
 			p You grab your step-up and a cup of coffee and run out the door without even checking the cams, you already know it is going to be giant. You get in the car and you drive an hour up the coast to that spot you know will be big and perfect. Every minute passes slowly but you finally arrive. You pull into the parking lot expecting giant scary beasts, but you find something much different. Its dissapointly smaller than it should be and it seems sort of short period and funky despite the light offshore wind. You check your phone again, but its still 8 ft at 20 seconds.
@@ -22,8 +20,9 @@ block content
 				li You are a surfer who does not know what a a JSON object or an API is, nor do you really care, you just want to get barreled and use a more accurate tool to do so. That's cool, we understand. May we recommend some absolutely awesome data based surfing sites that are responsive and use our custom built data?
 					ul
 						li
-						a(href="http://greenroomhunter.com") Greenroomhunter
-						a(href="http://swellmatrix.com") Swell Matrix
+							a(href="http://greenroomhunter.com") Greenroomhunter
+						li
+							a(href="http://swellmatrix.com") Swell Matrix
 	div(name="documentation").content-block.container
 		div.col-xs-12
 			h2 API Argument Documentation
@@ -46,6 +45,15 @@ block content
 			h3 Some helpful resources for figuring out buoy numbers:
 			p A full list of all available buoys by location on a map. Some of these will work, some of them will not, so test before you settle on one: a(href="http://www.ndbc.noaa.gov/") http://www.ndbc.noaa.gov/
 			p A full list of weather stations: a(href="http://www.ndbc.noaa.gov/to_station.shtml") http://www.ndbc.noaa.gov/to_station.shtml (again, some of these will work others will not)
+			p ...lastly google it. If you want to figure out what the buoy number of goleta point is, just "google goleta point NOAA buoy number". It's like magic.
+			h3 Example of a buoy query
+				p [url]/buoy?buoy=46086
+	div.content-block.container
+		div.col-xs-12
+			h2 Developer Nerd Talk
+			p This API was built on Node, Express and Jade. We are currently using Python to handle the calculations from energy values to the different datatypes. This project is open source, we want to know what you think and how we can make it better. Mark issues or make pull requests as you see fit.
+
+
 
 
 
