@@ -1,7 +1,44 @@
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 16px "Droid Serif", Helvetica, Arial, sans-serif;
+  line-height: 1.8;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1 {
+	font-size: 60px;
+}
+
+h2 {
+	font-size: 40px
+}
+
+h3 {
+	font-size: 35px;
 }
 
 a {
   color: #00B7FF;
+}
+
+
+
+
+.hero-banner {
+	padding: 60px 0px;
+	background: #339D8E;
+	text-align: center;
+	color: white;
+}
+
+.hero-banner .logo-container {
+	max-width: 320px;
+	margin: auto;
+}
+
+
+.content-block {
+	padding: 60px 0px;
 }
