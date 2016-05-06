@@ -26,9 +26,13 @@ a {
 
 /*logo url: https://thenounproject.com/term/buoy/127460/*/
 
+a {
+	color:#E9A325;
+}
+
 .hero-banner {
 	padding: 60px 0px;
-	background: #339D8E;
+	background: #50BFB0;
 	text-align: center;
 	color: white;
 }
@@ -43,7 +47,16 @@ a {
 	padding: 60px 0px;
 }
 
-.seafoam {
-	background: #339D8E;
+.seafoam-bg {
+	background: #50BFB0;
+	color: white;
+}
+
+.seafoam-bg a{
+	color: #FFE6BA;
+}
+
+.black-bg {
+	background: black;
 	color: white;
 }
