@@ -1,8 +1,63 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 16px "Droid Serif", Helvetica, Arial, sans-serif;
+  line-height: 1.8;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1 {
+	font-size: 80px;
+}
+
+h2 {
+	font-size: 40px
+}
+
+h3 {
+	font-size: 35px;
 }
 
 a {
   color: #00B7FF;
+}
+
+
+/*logo url: https://thenounproject.com/term/buoy/127460/*/
+/*Colors: http://paletton.com/palette.php?uid=33e0u0kiCFn8GVde7NVmtwSqXtg*/
+
+a {
+	color:#E9A325;
+}
+
+.hero-banner {
+	padding: 60px 0px;
+	background: #50BFB0;
+	text-align: center;
+	color: white;
+}
+
+.hero-banner .logo-container {
+	max-width: 320px;
+	margin: auto;
+}
+
+
+.content-block {
+	padding: 60px 0px;
+}
+
+.seafoam-bg {
+	background: #50BFB0;
+	color: white;
+}
+
+.seafoam-bg a{
+	color: #FFE6BA;
+}
+
+.black-bg {
+	background: black;
+	color: white;
 }
