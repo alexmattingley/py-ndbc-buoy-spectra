@@ -1,4 +1,4 @@
-__author__ = 'Caleb'
+__author__ = 'Caleb '
 from urllib2 import urlopen, HTTPError, URLError
 import datetime
 from math import sqrt, sin,cos,atan,degrees,radians
